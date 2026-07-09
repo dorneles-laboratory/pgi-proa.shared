@@ -44,6 +44,9 @@ export default [
 
       'no-unused-vars': 'off',
 
+      'no-redeclare': 'off',
+      '@typescript-eslint/no-redeclare': 'error',
+
       'prefer-const': 'error',
       'no-console': ['warn', { allow: ['warn', 'error'] }],
       '@typescript-eslint/no-unused-vars': [

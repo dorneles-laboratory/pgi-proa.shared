@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { userIdSchema } from '../../../src/modules/user/user.schemas';
+import { userIdSchema } from '../../../src/modules/users/users.schemas';
 
 describe('userIdSchema Unit Tests', () => {
   it('should accept a valid UUID', () => {

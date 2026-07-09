@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { updateUserSchema } from '../../../src/modules/user/user.schemas';
+import { updateUserSchema } from '../../../src/modules/users/users.schemas';
 
 describe('updateUserSchema Unit Tests', () => {
   it('should fail when no fields are provided', () => {

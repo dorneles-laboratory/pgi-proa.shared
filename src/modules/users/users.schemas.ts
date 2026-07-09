@@ -1,5 +1,4 @@
 import { z, registry } from '../../lib/registry';
-import type { PaginatedResultDTO } from '../../common/pagination.js';
 
 export const createUserSchema = registry.register(
   'CreateUserRequest',
@@ -49,25 +48,25 @@ export const createUserSchema = registry.register(
         example: 'Senha@123',
       }),
 
-    cellphone: z.string().trim().optional().openapi({
-      description: 'Número de celular do usuário',
-      example: '(55) 99999-9999',
-    }),
+    // cellphone: z.string().trim().optional().openapi({
+    //   description: 'Número de celular do usuário',
+    //   example: '(55) 99999-9999',
+    // }),
 
-    birth_date: z.coerce
-      .date({
-        message: 'A data de nascimento deve ser válida.',
-      })
-      .optional()
-      .openapi({
-        description: 'Data de nascimento do usuário (YYYY-MM-DD)',
-        example: '1990-01-01',
-      }),
+    // birth_date: z.coerce
+    //   .date({
+    //     message: 'A data de nascimento deve ser válida.',
+    //   })
+    //   .optional()
+    //   .openapi({
+    //     description: 'Data de nascimento do usuário (YYYY-MM-DD)',
+    //     example: '1990-01-01',
+    //   }),
 
-    address: z.string().trim().optional().openapi({
-      description: 'Endereço do usuário',
-      example: 'Rua Exemplo, 123 - Cidade/UF',
-    }),
+    // address: z.string().trim().optional().openapi({
+    //   description: 'Endereço do usuário',
+    //   example: 'Rua Exemplo, 123 - Cidade/UF',
+    // }),
 
     is_active: z.boolean().default(true).optional(),
   }),
@@ -114,17 +113,3 @@ export const userIdSchema = z.object({
       example: 'd3b07384-d113-49cd-a5d6-80d00d542fba',
     }),
 });
-
-// Types
-export type CreateUserDTO = z.infer<typeof createUserSchema>;
-export type UpdateUserDTO = z.infer<typeof updateUserSchema>;
-export type UserIdDTO = z.infer<typeof userIdSchema>;
-
-export type SafeUserDTO = Omit<CreateUserDTO, 'password'> & {
-  id: string;
-  created_at: Date | string;
-  updated_at: Date | string;
-  deletedAt: Date | string | null;
-};
-
-export type PaginatedUsersDTO = PaginatedResultDTO<SafeUserDTO>;

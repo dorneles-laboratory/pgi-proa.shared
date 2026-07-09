@@ -52,9 +52,3 @@ export const refreshTokenSchema = registry.register(
       }),
   }),
 );
-
-export interface TokenPayloadDTO {
-  sub: string;
-}
-
-export type LoginAuthDTO = z.infer<typeof loginSchema>;
