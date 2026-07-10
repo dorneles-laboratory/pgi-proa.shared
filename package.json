@@ -2,11 +2,12 @@
   "name": "@lib/shared",
   "version": "1.0.0",
   "description": "Tipos e Schemas compartilhados",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "tsc -w",
-    "prepare": "husky",
+    "prepare": "npm run build && husky",
     "test": "vitest run",
     "dev": "tsc --watch",
     "test-watch": "vitest --watch",
@@ -18,7 +19,7 @@
   "keywords": [],
   "author": "Eng. Fernando Dorneles da Silva",
   "license": "ISC",
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
