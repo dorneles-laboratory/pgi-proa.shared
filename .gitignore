@@ -10,7 +10,6 @@ node_modules/
 
 # Artefatos de build (se você compilar algo no futuro)
 build/
-dist/
 
 # Logs de debug do npm/yarn
 npm-debug.log*

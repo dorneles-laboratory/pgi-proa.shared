@@ -4,6 +4,9 @@
   "description": "Tipos e Schemas compartilhados",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "tsc -w",
