@@ -11,6 +11,15 @@ export declare const updateUserSchema: z.ZodObject<{
     password: z.ZodOptional<z.ZodString>;
     is_active: z.ZodOptional<z.ZodBoolean>;
 }, z.core.$strip>;
+export declare const userResponseSchema: z.ZodObject<{
+    id: z.ZodString;
+    name: z.ZodString;
+    email: z.ZodString;
+    is_active: z.ZodBoolean;
+    created_at: z.ZodCoercedDate<unknown>;
+    updated_at: z.ZodCoercedDate<unknown>;
+    deletedAt: z.ZodNullable<z.ZodCoercedDate<unknown>>;
+}, z.core.$strip>;
 export declare const userIdSchema: z.ZodObject<{
     id: z.ZodUUID;
 }, z.core.$strip>;

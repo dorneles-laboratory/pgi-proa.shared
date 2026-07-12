@@ -13,7 +13,7 @@ export const createTaskSchema = registry.register('CreateTaskRequest', z.object(
         description: 'ID do projeto ao qual a tarefa pertence',
         example: '123e4567-e89b-12d3-a456-426614174000',
     }),
-    priority: z.nativeEnum(TaskPriority).default(TaskPriority.Medium).openapi({
+    priority: z.nativeEnum(TaskPriority).default(TaskPriority.Low).openapi({
         description: 'Prioridade da tarefa',
         example: TaskPriority.High,
     }),
@@ -51,6 +51,7 @@ export const updateTaskSchema = registry.register('UpdateTaskRequest', createTas
     .refine((data) => Object.keys(data).length > 0, {
     message: 'Pelo menos um campo deve ser fornecido para atualização.',
 }));
+// O Schema de Resposta
 export const taskResponseSchema = registry.register('TaskResponse', z.object({
     id: z.string().uuid(),
     title: z.string(),

@@ -65,6 +65,7 @@ export const updateProjectSchema = registry.register('UpdateProjectRequest', cre
     .refine((data) => Object.keys(data).length > 0, {
     message: 'Pelo menos um campo deve ser fornecido para atualização.',
 }));
+// O Schema de Resposta
 export const projectResponseSchema = registry.register('ProjectResponse', z.object({
     id: z.string().uuid(),
     name: z.string(),

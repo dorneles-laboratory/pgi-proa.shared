@@ -1,11 +1,11 @@
-import { z } from 'zod';
+import { z } from '../../lib/registry';
 import {
   createTaskSchema,
   updateTaskSchema,
   taskResponseSchema,
   taskIdSchema,
 } from './tasks.schemas';
-import type { PaginatedResultDTO } from '../../common/pagination.js';
+import type { PaginatedResultDTO } from '../../common/common.types';
 
 export type CreateTaskDTO = z.infer<typeof createTaskSchema>;
 export type UpdateTaskDTO = z.infer<typeof updateTaskSchema>;

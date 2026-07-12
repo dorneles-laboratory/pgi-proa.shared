@@ -96,6 +96,23 @@ export const updateUserSchema = createUserSchema
     message: 'Pelo menos um campo deve ser fornecido para atualização.',
   });
 
+// O Schema de Resposta
+export const userResponseSchema = registry.register(
+  'UserResponse',
+  z.object({
+    id: z.string().uuid(),
+    name: z.string(),
+    email: z.string().email(),
+    // cellphone: z.string().nullable(),
+    // birth_date: z.coerce.date().nullable(),
+    // address: z.string().nullable(),
+    is_active: z.boolean(),
+    created_at: z.coerce.date(),
+    updated_at: z.coerce.date(),
+    deletedAt: z.coerce.date().nullable(),
+  }),
+);
+
 export const userIdSchema = z.object({
   id: z
     .uuid({

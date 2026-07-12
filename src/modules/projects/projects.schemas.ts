@@ -81,6 +81,7 @@ export const updateProjectSchema = registry.register(
     }),
 );
 
+// O Schema de Resposta
 export const projectResponseSchema = registry.register(
   'ProjectResponse',
   z.object({

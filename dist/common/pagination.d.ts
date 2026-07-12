@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from '@lib/shared';
 export declare const paginationSchema: z.ZodObject<{
     page: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
     limit: z.ZodDefault<z.ZodCoercedNumber<unknown>>;
