@@ -1,6 +1,6 @@
-import { z } from 'zod';
+import { z } from '@lib/shared';
 import { createUserSchema, updateUserSchema, userIdSchema } from './users.schemas';
-import type { PaginatedResultDTO } from '../../common/pagination.js';
+import type { PaginatedResultDTO } from '../../common/common.types';
 export type CreateUserDTO = z.infer<typeof createUserSchema>;
 export type UpdateUserDTO = z.infer<typeof updateUserSchema>;
 export type UserIdDTO = z.infer<typeof userIdSchema>;

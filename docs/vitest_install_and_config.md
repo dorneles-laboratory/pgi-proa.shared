@@ -157,7 +157,7 @@ export default defineConfig({
 `src/schemas/user.schema.ts`
 
 ```ts
-import { z } from 'zod';
+import { z } from '@lib/shared';
 
 export const createUserSchema = z.object({
   name: z.string().min(3),

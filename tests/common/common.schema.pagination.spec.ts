@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { paginationSchema } from '../../src/common/pagination';
+import { paginationSchema } from '../../src/common/common.schemas';
 
 describe('paginationSchema Unit Tests', () => {
   it('should apply default values when no params are provided', () => {

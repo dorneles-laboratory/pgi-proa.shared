@@ -19,7 +19,7 @@ export const createTaskSchema = registry.register(
       example: '123e4567-e89b-12d3-a456-426614174000',
     }),
 
-    priority: z.nativeEnum(TaskPriority).default(TaskPriority.Medium).openapi({
+    priority: z.nativeEnum(TaskPriority).default(TaskPriority.Low).openapi({
       description: 'Prioridade da tarefa',
       example: TaskPriority.High,
     }),
@@ -67,6 +67,7 @@ export const updateTaskSchema = registry.register(
     }),
 );
 
+// O Schema de Resposta
 export const taskResponseSchema = registry.register(
   'TaskResponse',
   z.object({
