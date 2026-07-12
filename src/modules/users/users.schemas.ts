@@ -109,7 +109,7 @@ export const userResponseSchema = registry.register(
     is_active: z.boolean(),
     created_at: z.coerce.date(),
     updated_at: z.coerce.date(),
-    deletedAt: z.coerce.date().nullable(),
+    // deletedAt: z.coerce.date().nullable(),
   }),
 );
 
