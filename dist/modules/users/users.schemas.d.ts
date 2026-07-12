@@ -18,7 +18,6 @@ export declare const userResponseSchema: z.ZodObject<{
     is_active: z.ZodBoolean;
     created_at: z.ZodCoercedDate<unknown>;
     updated_at: z.ZodCoercedDate<unknown>;
-    deletedAt: z.ZodNullable<z.ZodCoercedDate<unknown>>;
 }, z.core.$strip>;
 export declare const userIdSchema: z.ZodObject<{
     id: z.ZodUUID;

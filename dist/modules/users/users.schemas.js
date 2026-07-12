@@ -90,7 +90,7 @@ export const userResponseSchema = registry.register('UserResponse', z.object({
     is_active: z.boolean(),
     created_at: z.coerce.date(),
     updated_at: z.coerce.date(),
-    deletedAt: z.coerce.date().nullable(),
+    // deletedAt: z.coerce.date().nullable(),
 }));
 export const userIdSchema = z.object({
     id: z
