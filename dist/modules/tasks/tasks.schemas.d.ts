@@ -35,6 +35,8 @@ export declare const taskResponseSchema: z.ZodObject<{
         readonly Urgent: "URGENT";
     }>;
     dueDate: z.ZodNullable<z.ZodDate>;
+    hours: z.ZodNumber;
+    isTimerActive: z.ZodBoolean;
     createdAt: z.ZodDate;
     updatedAt: z.ZodDate;
 }, z.core.$strip>;
