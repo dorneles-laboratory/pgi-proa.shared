@@ -1,6 +1,0 @@
-import { z } from '@lib/shared';
-export const paginationSchema = z.object({
-    page: z.coerce.number().int().positive().default(1),
-    limit: z.coerce.number().int().positive().default(10),
-});
-//# sourceMappingURL=pagination.js.map

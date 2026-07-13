@@ -4,11 +4,12 @@
   "description": "Tipos e Schemas compartilhados",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "removeComments": true,
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc --build --clean && tsc --build",
     "watch": "tsc -w",
     "prepare": "npm run build && husky",
     "test": "vitest run",
