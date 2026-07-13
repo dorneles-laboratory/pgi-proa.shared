@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from '../../lib/registry';
 import {
   createTimeLogSchema,
   timeLogResponseSchema,
