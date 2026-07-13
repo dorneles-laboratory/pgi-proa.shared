@@ -78,6 +78,9 @@ export const taskResponseSchema = registry.register(
     // status: z.nativeEnum(TaskStatus),
     priority: z.nativeEnum(TaskPriority),
     dueDate: z.date().nullable(),
+
+    hours: z.number(),
+    isTimerActive: z.boolean(),
     // assigneeId: z.string().uuid().nullable(),
     // estimatedHours: z.number().nullable(),
     // collaboratorIds: z.array(z.string().uuid()).nullable(),
