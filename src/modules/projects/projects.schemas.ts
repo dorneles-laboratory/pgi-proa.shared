@@ -19,31 +19,31 @@ export const createProjectSchema = registry.register(
         example: 'PGI-PROA V2',
       }),
 
-    description: z
-      .string()
-      .max(2000, { message: 'Descrição muito longa.' })
-      .trim()
-      .optional()
-      .openapi({
-        description: 'Descrição detalhada do projeto e seus objetivos',
-      }),
+    // description: z
+    //   .string()
+    //   .max(2000, { message: 'Descrição muito longa.' })
+    //   .trim()
+    //   .optional()
+    //   .openapi({
+    //     description: 'Descrição detalhada do projeto e seus objetivos',
+    //   }),
 
-    status: z.nativeEnum(ProjectStatus).default(ProjectStatus.Draft).openapi({
-      description: 'Status inicial do projeto',
-      example: 'draft',
-    }),
+    // status: z.nativeEnum(ProjectStatus).default(ProjectStatus.Draft).openapi({
+    //   description: 'Status inicial do projeto',
+    //   example: 'draft',
+    // }),
 
-    priority: z
-      .nativeEnum(ProjectPriority)
-      .default(ProjectPriority.Medium)
-      .openapi({
-        description: 'Prioridade estratégica do projeto',
-        example: 'medium',
-      }),
+    // priority: z
+    //   .nativeEnum(ProjectPriority)
+    //   .default(ProjectPriority.Medium)
+    //   .openapi({
+    //     description: 'Prioridade estratégica do projeto',
+    //     example: 'medium',
+    //   }),
 
-    startDate: z.coerce.date().optional().openapi({
-      description: 'Data de início oficial do projeto',
-    }),
+    // startDate: z.coerce.date().optional().openapi({
+    //   description: 'Data de início oficial do projeto',
+    // }),
 
     // endDate: z.coerce.date().optional().openapi({
     //   description: 'Data de término estimada ou prazo final',
