@@ -1,14 +1,14 @@
 export const ProjectStatus = {
-    Draft: 'draft',
-    Active: 'active',
-    OnHold: 'on_hold',
-    Completed: 'completed',
-    Canceled: 'cancelled',
+    Draft: 'DRAFT',
+    Active: 'ACTIVE',
+    OnHold: 'ON_HOLD',
+    Completed: 'COMPLETED',
+    Canceled: 'CANCELLED',
 };
 export const ProjectPriority = {
-    Low: 'low',
-    Medium: 'medium',
-    High: 'high',
-    Critical: 'critical',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    High: 'HIGH',
+    Critical: 'CRITICAL',
 };
 //# sourceMappingURL=projects.enums.js.map

@@ -10,17 +10,17 @@ export declare const projectResponseSchema: z.ZodObject<{
     name: z.ZodString;
     description: z.ZodNullable<z.ZodString>;
     status: z.ZodEnum<{
-        readonly Draft: "draft";
-        readonly Active: "active";
-        readonly OnHold: "on_hold";
-        readonly Completed: "completed";
-        readonly Canceled: "cancelled";
+        readonly Draft: "DRAFT";
+        readonly Active: "ACTIVE";
+        readonly OnHold: "ON_HOLD";
+        readonly Completed: "COMPLETED";
+        readonly Canceled: "CANCELLED";
     }>;
     priority: z.ZodEnum<{
-        readonly Low: "low";
-        readonly Medium: "medium";
-        readonly High: "high";
-        readonly Critical: "critical";
+        readonly Low: "LOW";
+        readonly Medium: "MEDIUM";
+        readonly High: "HIGH";
+        readonly Critical: "CRITICAL";
     }>;
     startDate: z.ZodNullable<z.ZodDate>;
     createdAt: z.ZodDate;

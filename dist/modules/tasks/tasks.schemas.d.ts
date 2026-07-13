@@ -4,10 +4,10 @@ export declare const createTaskSchema: z.ZodObject<{
     description: z.ZodOptional<z.ZodString>;
     projectId: z.ZodString;
     priority: z.ZodDefault<z.ZodEnum<{
-        readonly Low: "low";
-        readonly Medium: "medium";
-        readonly High: "high";
-        readonly Urgent: "urgent";
+        readonly Low: "LOW";
+        readonly Medium: "MEDIUM";
+        readonly High: "HIGH";
+        readonly Urgent: "URGENT";
     }>>;
     dueDate: z.ZodOptional<z.ZodCoercedDate<unknown>>;
 }, z.core.$strip>;
@@ -16,10 +16,10 @@ export declare const updateTaskSchema: z.ZodObject<{
     description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     projectId: z.ZodOptional<z.ZodString>;
     priority: z.ZodOptional<z.ZodDefault<z.ZodEnum<{
-        readonly Low: "low";
-        readonly Medium: "medium";
-        readonly High: "high";
-        readonly Urgent: "urgent";
+        readonly Low: "LOW";
+        readonly Medium: "MEDIUM";
+        readonly High: "HIGH";
+        readonly Urgent: "URGENT";
     }>>>;
     dueDate: z.ZodOptional<z.ZodOptional<z.ZodCoercedDate<unknown>>>;
 }, z.core.$strip>;
@@ -29,10 +29,10 @@ export declare const taskResponseSchema: z.ZodObject<{
     description: z.ZodNullable<z.ZodString>;
     projectId: z.ZodString;
     priority: z.ZodEnum<{
-        readonly Low: "low";
-        readonly Medium: "medium";
-        readonly High: "high";
-        readonly Urgent: "urgent";
+        readonly Low: "LOW";
+        readonly Medium: "MEDIUM";
+        readonly High: "HIGH";
+        readonly Urgent: "URGENT";
     }>;
     dueDate: z.ZodNullable<z.ZodDate>;
     createdAt: z.ZodDate;
