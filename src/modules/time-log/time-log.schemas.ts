@@ -1,5 +1,5 @@
 import { z, registry } from '../../lib/registry';
-import { TimeLogNature } from './time-tracking.enums';
+import { TimeLogNature } from './time-log.enums';
 
 export const createTimeLogSchema = registry.register(
   'CreateTimeLogRequest',
@@ -52,5 +52,33 @@ export const timeLogResponseSchema = registry.register(
     description: z.string(),
     createdAt: z.date(),
     updatedAt: z.date(),
+  }),
+);
+
+export const toggleTimerResponseSchema = registry.register(
+  'ToggleTimerResponse',
+  z.object({
+    isTimerActive: z.boolean().openapi({
+      description:
+        'Indica se o cronômetro passou a rodar (Play) ou pausou (Pause)',
+      example: true,
+    }),
+  }),
+);
+
+export const pendingTimeResponseSchema = registry.register(
+  'PendingTimeResponse',
+  z.object({
+    totalMinutes: z.number().openapi({
+      description: 'Total de minutos acumulados nas sessões abertas',
+      example: 120,
+    }),
+    firstStart: z.date().nullable().openapi({
+      description: 'Data e hora do primeiro Play acionado',
+    }),
+    lastEnd: z.date().nullable().openapi({
+      description:
+        'Data e hora do último Pause acionado (ou data atual se estiver rodando)',
+    }),
   }),
 );
