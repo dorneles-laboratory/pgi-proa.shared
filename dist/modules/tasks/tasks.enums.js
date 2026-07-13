@@ -1,14 +1,14 @@
 export const TaskStatus = {
-    Pending: 'pending',
-    InProgress: 'in_progress',
-    InReview: 'in_review',
-    Completed: 'completed',
-    Archived: 'archived',
+    Pending: 'PENDING',
+    InProgress: 'IN_PROGRESS',
+    InReview: 'IN_REVIEW',
+    Completed: 'COMPLETED',
+    Archived: 'ARCHIVED',
 };
 export const TaskPriority = {
-    Low: 'low',
-    Medium: 'medium',
-    High: 'high',
-    Urgent: 'urgent',
+    Low: 'LOW',
+    Medium: 'MEDIUM',
+    High: 'HIGH',
+    Urgent: 'URGENT',
 };
 //# sourceMappingURL=tasks.enums.js.map

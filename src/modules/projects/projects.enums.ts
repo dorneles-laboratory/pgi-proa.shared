@@ -1,19 +1,19 @@
 export const ProjectStatus = {
-  Draft: 'draft',
-  Active: 'active',
-  OnHold: 'on_hold',
-  Completed: 'completed',
-  Canceled: 'cancelled',
+  Draft: 'DRAFT',
+  Active: 'ACTIVE',
+  OnHold: 'ON_HOLD',
+  Completed: 'COMPLETED',
+  Canceled: 'CANCELLED',
 } as const;
 
 export type EnumProjectStatus =
   (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 export const ProjectPriority = {
-  Low: 'low',
-  Medium: 'medium',
-  High: 'high',
-  Critical: 'critical',
+  Low: 'LOW',
+  Medium: 'MEDIUM',
+  High: 'HIGH',
+  Critical: 'CRITICAL',
 } as const;
 
 export type EnumProjectPriority =

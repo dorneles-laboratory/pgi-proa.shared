@@ -3,9 +3,9 @@
  */
 export const AuthEnums = {
     LoginStatus: {
-        Pending: 'pending',
-        Authenticated: 'authenticated',
-        Unauthenticated: 'unauthenticated',
+        Pending: 'PENDING',
+        Authenticated: 'AUTHENTICATED',
+        Unauthenticated: 'UNAUTHENTICATED',
     },
 };
 //# sourceMappingURL=auth.enums.js.map
