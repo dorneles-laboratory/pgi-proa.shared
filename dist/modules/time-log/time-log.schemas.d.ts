@@ -21,7 +21,7 @@ export declare const timeLogResponseSchema: z.ZodObject<{
     date: z.ZodDate;
     startTime: z.ZodString;
     endTime: z.ZodString;
-    loggedHours: z.ZodNumber;
+    loggedMinutes: z.ZodDefault<z.ZodNumber>;
     nature: z.ZodEnum<{
         readonly DEV: "DEV";
         readonly MEETING: "MEETING";

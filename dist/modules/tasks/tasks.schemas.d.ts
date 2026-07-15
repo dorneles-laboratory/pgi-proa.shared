@@ -22,6 +22,7 @@ export declare const updateTaskSchema: z.ZodObject<{
         readonly Urgent: "URGENT";
     }>>>;
     dueDate: z.ZodOptional<z.ZodOptional<z.ZodCoercedDate<unknown>>>;
+    totalMinutes: z.ZodOptional<z.ZodNumber>;
 }, z.core.$strip>;
 export declare const taskResponseSchema: z.ZodObject<{
     id: z.ZodString;
@@ -35,7 +36,7 @@ export declare const taskResponseSchema: z.ZodObject<{
         readonly Urgent: "URGENT";
     }>;
     dueDate: z.ZodNullable<z.ZodDate>;
-    hours: z.ZodNumber;
+    totalMinutes: z.ZodDefault<z.ZodNumber>;
     isTimerActive: z.ZodBoolean;
     createdAt: z.ZodDate;
     updatedAt: z.ZodDate;

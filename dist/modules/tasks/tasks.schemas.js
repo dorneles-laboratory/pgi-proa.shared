@@ -23,7 +23,11 @@ export const createTaskSchema = registry.register('CreateTaskRequest', z.object(
     }),
 }));
 export const updateTaskSchema = registry.register('UpdateTaskRequest', createTaskSchema
-    // .extend({
+    .extend({
+    totalMinutes: z.number().int().openapi({
+        description: 'horas gastas na tarefa',
+        example: 523,
+    }),
     //   status: z.nativeEnum(TaskStatus).openapi({
     //     description: 'Só atualizamos o status depois de criada',
     //     example: TaskStatus.InProgress,
@@ -46,7 +50,7 @@ export const updateTaskSchema = registry.register('UpdateTaskRequest', createTas
     //       '123e4567-e89b-12d3-a456-426614174001',
     //     ],
     //   }),
-    // })
+})
     .partial()
     .refine((data) => Object.keys(data).length > 0, {
     message: 'Pelo menos um campo deve ser fornecido para atualização.',
@@ -60,7 +64,7 @@ export const taskResponseSchema = registry.register('TaskResponse', z.object({
     // status: z.nativeEnum(TaskStatus),
     priority: z.nativeEnum(TaskPriority),
     dueDate: z.date().nullable(),
-    hours: z.number(),
+    totalMinutes: z.number().int().default(0),
     isTimerActive: z.boolean(),
     // assigneeId: z.string().uuid().nullable(),
     // estimatedHours: z.number().nullable(),

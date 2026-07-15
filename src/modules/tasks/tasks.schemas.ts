@@ -34,33 +34,37 @@ export const createTaskSchema = registry.register(
 export const updateTaskSchema = registry.register(
   'UpdateTaskRequest',
   createTaskSchema
-    // .extend({
-    //   status: z.nativeEnum(TaskStatus).openapi({
-    //     description: 'Só atualizamos o status depois de criada',
-    //     example: TaskStatus.InProgress,
-    //   }),
+    .extend({
+      totalMinutes: z.number().int().openapi({
+        description: 'horas gastas na tarefa',
+        example: 523,
+      }),
+      //   status: z.nativeEnum(TaskStatus).openapi({
+      //     description: 'Só atualizamos o status depois de criada',
+      //     example: TaskStatus.InProgress,
+      //   }),
 
-    //   assigneeId: z.string().uuid().optional().openapi({
-    //     description: 'ID do usuário responsável',
-    //     example: '123e4567-e89b-12d3-a456-426614174000',
-    //   }),
+      //   assigneeId: z.string().uuid().optional().openapi({
+      //     description: 'ID do usuário responsável',
+      //     example: '123e4567-e89b-12d3-a456-426614174000',
+      //   }),
 
-    // estimatedHours: z.number().positive().optional().openapi({
-    //   description: 'Estimativa em horas',
-    //   example: 8,
-    // }),
+      // estimatedHours: z.number().positive().optional().openapi({
+      //   description: 'Estimativa em horas',
+      //   example: 8,
+      // }),
 
-    // collaboratorIds: z
-    //   .array(z.string().uuid())
-    //   .optional()
-    //   .openapi({
-    //     description: 'Outros membros (Watchers)',
-    //     example: [
-    //       '123e4567-e89b-12d3-a456-426614174000',
-    //       '123e4567-e89b-12d3-a456-426614174001',
-    //     ],
-    //   }),
-    // })
+      // collaboratorIds: z
+      //   .array(z.string().uuid())
+      //   .optional()
+      //   .openapi({
+      //     description: 'Outros membros (Watchers)',
+      //     example: [
+      //       '123e4567-e89b-12d3-a456-426614174000',
+      //       '123e4567-e89b-12d3-a456-426614174001',
+      //     ],
+      //   }),
+    })
     .partial()
     .refine((data) => Object.keys(data).length > 0, {
       message: 'Pelo menos um campo deve ser fornecido para atualização.',
@@ -79,7 +83,7 @@ export const taskResponseSchema = registry.register(
     priority: z.nativeEnum(TaskPriority),
     dueDate: z.date().nullable(),
 
-    hours: z.number(),
+    totalMinutes: z.number().int().default(0),
     isTimerActive: z.boolean(),
     // assigneeId: z.string().uuid().nullable(),
     // estimatedHours: z.number().nullable(),

@@ -39,7 +39,7 @@ export const timeLogResponseSchema = registry.register('TimeLogResponse', z.obje
     date: z.date(),
     startTime: z.string(),
     endTime: z.string(),
-    loggedHours: z.number(),
+    loggedMinutes: z.number().int().default(0),
     nature: z.nativeEnum(TimeLogNature),
     description: z.string(),
     createdAt: z.date(),
