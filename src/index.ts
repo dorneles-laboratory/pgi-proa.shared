@@ -6,4 +6,6 @@ export * from './modules/time-log';
 
 export * from './common/';
 
+export * from './utils/';
+
 export * from './lib/registry';
