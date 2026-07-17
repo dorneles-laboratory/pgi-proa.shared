@@ -38,6 +38,12 @@ export const createTimeLogSchema = registry.register(
   }),
 );
 
+// Schema para atualização
+export const updateTimeLogSchema = registry.register(
+  'UpdateTimeLogRequest',
+  createTimeLogSchema.omit({ taskId: true }).partial(),
+);
+
 export const timeLogResponseSchema = registry.register(
   'TimeLogResponse',
   z.object({
@@ -52,6 +58,19 @@ export const timeLogResponseSchema = registry.register(
     description: z.string(),
     createdAt: z.date(),
     updatedAt: z.date(),
+  }),
+);
+
+export const paginatedTimeLogsResponseSchema = registry.register(
+  'PaginatedTimeLogsResponse',
+  z.object({
+    data: z.array(timeLogResponseSchema),
+    meta: z.object({
+      totalItems: z.number().int(),
+      totalPages: z.number().int(),
+      currentPage: z.number().int(),
+      itemsPerPage: z.number().int(),
+    }),
   }),
 );
 

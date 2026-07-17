@@ -32,6 +32,8 @@ export const createTimeLogSchema = registry.register('CreateTimeLogRequest', z.o
         example: 'Refatoração da camada de autenticação e ajuste de tipagens no shared.',
     }),
 }));
+// Schema para atualização
+export const updateTimeLogSchema = registry.register('UpdateTimeLogRequest', createTimeLogSchema.omit({ taskId: true }).partial());
 export const timeLogResponseSchema = registry.register('TimeLogResponse', z.object({
     id: z.string().uuid(),
     taskId: z.string().uuid(),
@@ -44,6 +46,15 @@ export const timeLogResponseSchema = registry.register('TimeLogResponse', z.obje
     description: z.string(),
     createdAt: z.date(),
     updatedAt: z.date(),
+}));
+export const paginatedTimeLogsResponseSchema = registry.register('PaginatedTimeLogsResponse', z.object({
+    data: z.array(timeLogResponseSchema),
+    meta: z.object({
+        totalItems: z.number().int(),
+        totalPages: z.number().int(),
+        currentPage: z.number().int(),
+        itemsPerPage: z.number().int(),
+    }),
 }));
 export const toggleTimerResponseSchema = registry.register('ToggleTimerResponse', z.object({
     isTimerActive: z.boolean().openapi({
