@@ -1,4 +1,5 @@
 export declare const TaskStatus: {
+    readonly Backlog: "BACKLOG";
     readonly Pending: "PENDING";
     readonly InProgress: "IN_PROGRESS";
     readonly InReview: "IN_REVIEW";

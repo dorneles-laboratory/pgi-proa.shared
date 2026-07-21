@@ -28,10 +28,10 @@ export const updateTaskSchema = registry.register('UpdateTaskRequest', createTas
         description: 'horas gastas na tarefa',
         example: 523,
     }),
-    //   status: z.nativeEnum(TaskStatus).openapi({
-    //     description: 'Só atualizamos o status depois de criada',
-    //     example: TaskStatus.InProgress,
-    //   }),
+    status: z.nativeEnum(TaskStatus).openapi({
+        description: 'Só atualizamos o status depois de criada',
+        example: TaskStatus.InProgress,
+    }),
     //   assigneeId: z.string().uuid().optional().openapi({
     //     description: 'ID do usuário responsável',
     //     example: '123e4567-e89b-12d3-a456-426614174000',
@@ -61,7 +61,7 @@ export const taskResponseSchema = registry.register('TaskResponse', z.object({
     title: z.string(),
     description: z.string().nullable(),
     projectId: z.string().uuid(),
-    // status: z.nativeEnum(TaskStatus),
+    status: z.nativeEnum(TaskStatus),
     priority: z.nativeEnum(TaskPriority),
     dueDate: z.date().nullable(),
     totalMinutes: z.number().int().default(0),
