@@ -1,4 +1,5 @@
 export const TaskStatus = {
+  Backlog: 'BACKLOG',
   Pending: 'PENDING',
   InProgress: 'IN_PROGRESS',
   InReview: 'IN_REVIEW',
