@@ -66,6 +66,7 @@ export const taskResponseSchema = registry.register('TaskResponse', z.object({
     dueDate: z.date().nullable(),
     totalMinutes: z.number().int().default(0),
     isTimerActive: z.boolean(),
+    hasPendingSessions: z.boolean().optional(),
     // assigneeId: z.string().uuid().nullable(),
     // estimatedHours: z.number().nullable(),
     // collaboratorIds: z.array(z.string().uuid()).nullable(),

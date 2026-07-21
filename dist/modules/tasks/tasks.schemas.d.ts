@@ -54,6 +54,7 @@ export declare const taskResponseSchema: z.ZodObject<{
     dueDate: z.ZodNullable<z.ZodDate>;
     totalMinutes: z.ZodDefault<z.ZodNumber>;
     isTimerActive: z.ZodBoolean;
+    hasPendingSessions: z.ZodOptional<z.ZodBoolean>;
     createdAt: z.ZodDate;
     updatedAt: z.ZodDate;
 }, z.core.$strip>;
