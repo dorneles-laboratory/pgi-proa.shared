@@ -49,13 +49,6 @@ export const createProjectSchema = registry.register(
     //   description: 'Data de término estimada ou prazo final',
     // }),
 
-    ownerId: z
-      .string()
-      .uuid({ message: 'O ID do responsável deve ser um UUID válido.' })
-      .openapi({
-        description: 'UUID do usuário responsável (dono) pelo projeto',
-      }),
-
     memberIds: z
       .array(z.string().uuid())
       .optional()
