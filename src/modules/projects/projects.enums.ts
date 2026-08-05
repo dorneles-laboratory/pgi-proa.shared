@@ -18,3 +18,12 @@ export const ProjectPriority = {
 
 export type EnumProjectPriority =
   (typeof ProjectPriority)[keyof typeof ProjectPriority];
+
+export const ProjectRole = {
+  Owner: 'OWNER',
+  Admin: 'ADMIN',
+  Member: 'MEMBER',
+  Viewer: 'VIEWER',
+} as const;
+
+export type EnumProjectRole = (typeof ProjectRole)[keyof typeof ProjectRole];

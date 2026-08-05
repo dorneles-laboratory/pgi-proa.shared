@@ -11,4 +11,10 @@ export const ProjectPriority = {
     High: 'HIGH',
     Critical: 'CRITICAL',
 };
+export const ProjectRole = {
+    Owner: 'OWNER',
+    Admin: 'ADMIN',
+    Member: 'MEMBER',
+    Viewer: 'VIEWER',
+};
 //# sourceMappingURL=projects.enums.js.map

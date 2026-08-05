@@ -13,4 +13,11 @@ export declare const ProjectPriority: {
     readonly Critical: "CRITICAL";
 };
 export type EnumProjectPriority = (typeof ProjectPriority)[keyof typeof ProjectPriority];
+export declare const ProjectRole: {
+    readonly Owner: "OWNER";
+    readonly Admin: "ADMIN";
+    readonly Member: "MEMBER";
+    readonly Viewer: "VIEWER";
+};
+export type EnumProjectRole = (typeof ProjectRole)[keyof typeof ProjectRole];
 //# sourceMappingURL=projects.enums.d.ts.map
