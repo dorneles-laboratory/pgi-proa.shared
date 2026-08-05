@@ -1,11 +1,11 @@
 import { z } from '../../lib/registry';
 export declare const createProjectSchema: z.ZodObject<{
     name: z.ZodString;
-    memberIds: z.ZodOptional<z.ZodArray<z.ZodString>>;
 }, z.core.$strip>;
 export declare const updateProjectSchema: z.ZodObject<{
     name: z.ZodOptional<z.ZodString>;
     memberIds: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString>>>;
+    ownerId: z.ZodOptional<z.ZodOptional<z.ZodString>>;
 }, z.core.$strip>;
 export declare const projectResponseSchema: z.ZodObject<{
     id: z.ZodString;

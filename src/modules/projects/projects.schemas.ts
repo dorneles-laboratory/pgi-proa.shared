@@ -48,35 +48,29 @@ export const createProjectSchema = registry.register(
     // endDate: z.coerce.date().optional().openapi({
     //   description: 'Data de término estimada ou prazo final',
     // }),
-
-    memberIds: z
-      .array(z.string().uuid())
-      .optional()
-      .openapi({
-        description: 'Membros do projeto (IDs de usuários)',
-        example: [
-          '123e4567-e89b-12d3-a456-426614174000',
-          '123e4567-e89b-12d3-a456-426614174001',
-        ],
-      }),
   }),
 );
 
 export const updateProjectSchema = registry.register(
   'UpdateProjectRequest',
   createProjectSchema
-    // .extend({
-    //   memberIds: z
-    //     .array(z.string().uuid())
-    //     .optional()
-    //     .openapi({
-    //       description: 'Membros do projeto (IDs de usuários)',
-    //       example: [
-    //         '123e4567-e89b-12d3-a456-426614174000',
-    //         '123e4567-e89b-12d3-a456-426614174001',
-    //       ],
-    //     }),
-    // })
+    .extend({
+      memberIds: z
+        .array(z.string().uuid())
+        .optional()
+        .openapi({
+          description: 'Membros do projeto (IDs de usuários)',
+          example: [
+            '123e4567-e89b-12d3-a456-426614174000',
+            '123e4567-e89b-12d3-a456-426614174001',
+          ],
+        }),
+
+      ownerId: z.string().uuid().optional().openapi({
+        description: 'ID do usuário responsável',
+        example: '123e4567-e89b-12d3-a456-426614174000',
+      }),
+    })
     .partial()
     .refine((data) => Object.keys(data).length > 0, {
       message: 'Pelo menos um campo deve ser fornecido para atualização.',

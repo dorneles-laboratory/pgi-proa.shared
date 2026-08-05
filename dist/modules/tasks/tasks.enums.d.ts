@@ -14,4 +14,11 @@ export declare const TaskPriority: {
     readonly Urgent: "URGENT";
 };
 export type EnumTaskPriority = (typeof TaskPriority)[keyof typeof TaskPriority];
+export declare const TaskRole: {
+    readonly Owner: "OWNER";
+    readonly Admin: "ADMIN";
+    readonly Member: "MEMBER";
+    readonly Viewer: "VIEWER";
+};
+export type EnumTaskRole = (typeof TaskRole)[keyof typeof TaskRole];
 //# sourceMappingURL=tasks.enums.d.ts.map
