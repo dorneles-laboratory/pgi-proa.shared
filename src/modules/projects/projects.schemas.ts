@@ -49,14 +49,23 @@ export const createProjectSchema = registry.register(
     //   description: 'Data de término estimada ou prazo final',
     // }),
 
-    // managerId: z
-    //   .string()
-    //   .uuid({ message: 'O ID do gerente deve ser um UUID válido.' })
-    //   .optional()
-    //   .openapi({
-    //     description:
-    //       'UUID do usuário responsável pelo gerenciamento do projeto',
-    //   }),
+    ownerId: z
+      .string()
+      .uuid({ message: 'O ID do responsável deve ser um UUID válido.' })
+      .openapi({
+        description: 'UUID do usuário responsável (dono) pelo projeto',
+      }),
+
+    memberIds: z
+      .array(z.string().uuid())
+      .optional()
+      .openapi({
+        description: 'Membros do projeto (IDs de usuários)',
+        example: [
+          '123e4567-e89b-12d3-a456-426614174000',
+          '123e4567-e89b-12d3-a456-426614174001',
+        ],
+      }),
   }),
 );
 
@@ -92,8 +101,16 @@ export const projectResponseSchema = registry.register(
     priority: z.nativeEnum(ProjectPriority),
     startDate: z.date().nullable(),
     // endDate: z.date().nullable(),
-    // managerId: z.string().uuid().nullable(),
-    // memberIds: z.array(z.string().uuid()).nullable(),
+    ownerId: z.string().uuid(),
+    members: z
+      .array(
+        z.object({
+          userId: z.string().uuid(),
+          role: z.string(),
+          joinedAt: z.date(),
+        }),
+      )
+      .optional(),
     // createdById: z.string().uuid(),
     createdAt: z.date(),
     updatedAt: z.date(),
