@@ -96,10 +96,10 @@ export const projectResponseSchema = registry.register(
   z.object({
     id: z.string().uuid(),
     name: z.string(),
-    description: z.string().nullable(),
-    status: z.nativeEnum(ProjectStatus),
-    priority: z.nativeEnum(ProjectPriority),
-    startDate: z.date().nullable(),
+    // description: z.string().nullable(),
+    // status: z.nativeEnum(ProjectStatus),
+    // priority: z.nativeEnum(ProjectPriority),
+    // startDate: z.date().nullable(),
     // endDate: z.date().nullable(),
     ownerId: z.string().uuid(),
     members: z
