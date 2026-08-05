@@ -1,0 +1,29 @@
+import { z } from '../../lib/registry';
+export declare const dashboardResponseSchema: z.ZodObject<{
+    kpis: z.ZodObject<{
+        totalTasks: z.ZodNumber;
+        totalHours: z.ZodNumber;
+        completedTasks: z.ZodNumber;
+        delayedTasks: z.ZodNumber;
+        dailyGoalPercent: z.ZodNumber;
+        totalProjects: z.ZodNumber;
+        urgentTasks: z.ZodNumber;
+        todayMinutes: z.ZodNumber;
+    }, z.core.$strip>;
+    hoursPerNature: z.ZodArray<z.ZodObject<{
+        natureza: z.ZodString;
+        horas: z.ZodNumber;
+    }, z.core.$strip>>;
+    appointmentsPerProject: z.ZodArray<z.ZodObject<{
+        projeto: z.ZodString;
+        horas: z.ZodNumber;
+    }, z.core.$strip>>;
+    recentActivity: z.ZodArray<z.ZodObject<{
+        type: z.ZodString;
+        userName: z.ZodString;
+        taskTitle: z.ZodString;
+        loggedMinutes: z.ZodNumber;
+        createdAt: z.ZodString;
+    }, z.core.$strip>>;
+}, z.core.$strip>;
+//# sourceMappingURL=dashboard.schemas.d.ts.map
