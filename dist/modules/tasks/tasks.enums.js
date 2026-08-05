@@ -12,4 +12,10 @@ export const TaskPriority = {
     High: 'HIGH',
     Urgent: 'URGENT',
 };
+export const TaskRole = {
+    Owner: 'OWNER',
+    Admin: 'ADMIN',
+    Member: 'MEMBER',
+    Viewer: 'VIEWER',
+};
 //# sourceMappingURL=tasks.enums.js.map

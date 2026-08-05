@@ -45,26 +45,26 @@ export const updateTaskSchema = registry.register(
         example: TaskStatus.InProgress,
       }),
 
-      //   assigneeId: z.string().uuid().optional().openapi({
-      //     description: 'ID do usuário responsável',
-      //     example: '123e4567-e89b-12d3-a456-426614174000',
-      //   }),
+      memberIds: z
+        .array(z.string().uuid())
+        .optional()
+        .openapi({
+          description: 'Membros do projeto (IDs de usuários)',
+          example: [
+            '123e4567-e89b-12d3-a456-426614174000',
+            '123e4567-e89b-12d3-a456-426614174001',
+          ],
+        }),
+
+      ownerId: z.string().uuid().optional().openapi({
+        description: 'ID do usuário responsável',
+        example: '123e4567-e89b-12d3-a456-426614174000',
+      }),
 
       // estimatedHours: z.number().positive().optional().openapi({
       //   description: 'Estimativa em horas',
       //   example: 8,
       // }),
-
-      // collaboratorIds: z
-      //   .array(z.string().uuid())
-      //   .optional()
-      //   .openapi({
-      //     description: 'Outros membros (Watchers)',
-      //     example: [
-      //       '123e4567-e89b-12d3-a456-426614174000',
-      //       '123e4567-e89b-12d3-a456-426614174001',
-      //     ],
-      //   }),
     })
     .partial()
     .refine((data) => Object.keys(data).length > 0, {
@@ -88,9 +88,17 @@ export const taskResponseSchema = registry.register(
     isTimerActive: z.boolean(),
     hasPendingSessions: z.boolean().optional(),
 
-    // assigneeId: z.string().uuid().nullable(),
+    ownerId: z.string().uuid(),
+    members: z
+      .array(
+        z.object({
+          userId: z.string().uuid(),
+          role: z.string(),
+          joinedAt: z.date(),
+        }),
+      )
+      .optional(),
     // estimatedHours: z.number().nullable(),
-    // collaboratorIds: z.array(z.string().uuid()).nullable(),
     // createdById: z.string().uuid(),
     // closedById: z.string().uuid().nullable(),
     createdAt: z.date(),

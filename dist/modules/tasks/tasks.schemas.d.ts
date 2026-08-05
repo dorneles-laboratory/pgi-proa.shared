@@ -31,6 +31,8 @@ export declare const updateTaskSchema: z.ZodObject<{
         readonly Completed: "COMPLETED";
         readonly Archived: "ARCHIVED";
     }>>;
+    memberIds: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString>>>;
+    ownerId: z.ZodOptional<z.ZodOptional<z.ZodString>>;
 }, z.core.$strip>;
 export declare const taskResponseSchema: z.ZodObject<{
     id: z.ZodString;
@@ -55,6 +57,12 @@ export declare const taskResponseSchema: z.ZodObject<{
     totalMinutes: z.ZodDefault<z.ZodNumber>;
     isTimerActive: z.ZodBoolean;
     hasPendingSessions: z.ZodOptional<z.ZodBoolean>;
+    ownerId: z.ZodString;
+    members: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        userId: z.ZodString;
+        role: z.ZodString;
+        joinedAt: z.ZodDate;
+    }, z.core.$strip>>>;
     createdAt: z.ZodDate;
     updatedAt: z.ZodDate;
 }, z.core.$strip>;
